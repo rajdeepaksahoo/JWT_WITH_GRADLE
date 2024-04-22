@@ -1,0 +1,23 @@
+spring:
+    application:
+        name: JWT04
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: training
+        url: jdbc:postgresql://10.11.12.95:5460/training
+        username: training
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+logging:
+    level:
+        root: INFO
+        com.example.myapp: DEBUG
+secret:
+    key: 3fPf5oKUrn4jQNSlWo8T3H+lnEY/RZ7VImDz6UGXpmitRlzd4fGc6YQwaO1OnbQswH14n19SWKpEcSiB43fjjg==
+expiration:
+    hours: 6
+    minutes: 60
+    seconds: 60
+    milliseconds: 1000
