@@ -1,5 +1,6 @@
 package com.jwt.controller;
 
+import com.jwt.exception.UserIsAlreadyRegisteredException;
 import com.jwt.model.UserModel;
 import com.jwt.service.SecurityService;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SecurityController {
     private SecurityService securityService;
     @PostMapping("/register")
-    public UserModel registerUser(@RequestBody UserModel userModel){
+    public UserModel registerUser(@RequestBody UserModel userModel) throws UserIsAlreadyRegisteredException {
         return securityService.registerUser(userModel);
     }
     @PostMapping("/token")
