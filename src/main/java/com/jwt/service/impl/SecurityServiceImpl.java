@@ -31,9 +31,10 @@ public class SecurityServiceImpl implements SecurityService {
     }
     @Override
     public String getToken(UserModel userModel){
-        String password = passwordEncoder.encode(userModel.getPassword());
         Optional<UserModel> byUserName = securityRepository.findByUserName(userModel.getUserName());
         if(byUserName.isPresent()){
+            System.out.println(userModel);
+            System.out.println(byUserName.get());
             if(passwordEncoder.matches(userModel.getPassword(),byUserName.get().getPassword())){
                 return jwtService.generateToken(new CustomUserDetails(userModel));
             }else {
